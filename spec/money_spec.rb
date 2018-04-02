@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe '通貨' do
+describe '金額' do
   describe '掛け算' do
     it do
       five = Money.dollar(5)
@@ -24,6 +24,13 @@ describe '通貨' do
       five = Money.franc(5)
       expect(five.times(2)).to eq(Money.franc(10))
       expect(five.times(3)).to eq(Money.franc(15))
+    end
+  end
+
+  describe '通貨' do
+    it do
+      expect(Money.dollar(1).currency).to eq('USD')
+      expect(Money.franc(1).currency).to eq('CHF')
     end
   end
 end
