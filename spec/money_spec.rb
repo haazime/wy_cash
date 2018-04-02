@@ -13,8 +13,6 @@ describe '金額' do
     it do
       expect(Money.dollar(5)).to eq(Money.dollar(5))
       expect(Money.dollar(5)).to_not eq(Money.dollar(6))
-      expect(Money.franc(5)).to eq(Money.franc(5))
-      expect(Money.franc(5)).to_not eq(Money.franc(6))
       expect(Money.franc(5)).to_not eq(Money.dollar(5))
     end
   end
@@ -31,12 +29,6 @@ describe '金額' do
     it do
       expect(Money.dollar(1).currency).to eq('USD')
       expect(Money.franc(1).currency).to eq('CHF')
-    end
-  end
-
-  describe '異なる通貨の同値性' do
-    it do
-      expect(Money.new(10, 'CHF')).to eq(Franc.new(10, 'CHF'))
     end
   end
 end
