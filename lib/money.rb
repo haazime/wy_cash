@@ -1,3 +1,5 @@
+require 'bank'
+
 class Money
   class << self
 

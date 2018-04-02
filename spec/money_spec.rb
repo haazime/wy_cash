@@ -32,10 +32,14 @@ describe '金額' do
     end
   end
 
-  describe '同じ通貨の加算' do
+  describe '単純な加算' do
     it do
-      sum = Money.dollar(5) + Money.dollar(5)
-      expect(sum).to eq(Money.dollar(10))
+      five = Money.dollar(5)
+      sum = five + five
+
+      bank = Bank.new
+      reduced = bank.reduce(sum, 'USD')
+      expect(reduced).to eq(Money.dollar(10))
     end
   end
 end
