@@ -11,4 +11,10 @@ describe '通貨' do
       expect(product.amount).to eq(15)
     end
   end
+
+  describe '同値性' do
+    it do
+      expect(Dollar.new(5)).to eq(Dollar.new(5))
+    end
+  end
 end
