@@ -3,6 +3,6 @@ require 'money'
 class Dollar < Money
 
   def times(multiplier)
-    self.class.new(@amount * multiplier)
+    Money.dollar(@amount * multiplier)
   end
 end
