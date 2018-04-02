@@ -33,4 +33,10 @@ describe '金額' do
       expect(Money.franc(1).currency).to eq('CHF')
     end
   end
+
+  describe '異なる通貨の同値性' do
+    it do
+      expect(Money.new(10, 'CHF')).to eq(Franc.new(10, 'CHF'))
+    end
+  end
 end
