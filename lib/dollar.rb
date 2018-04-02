@@ -5,7 +5,7 @@ class Dollar
     @amount = amount
   end
 
-  def times(count)
-    @amount = @amount * count
+  def times(multiplier)
+    self.class.new(@amount * multiplier)
   end
 end
