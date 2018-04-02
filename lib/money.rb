@@ -5,7 +5,8 @@ class Money
   end
 
   def ==(other)
-    self.amount == other.amount
+    self.instance_of?(other.class) &&
+      self.amount == other.amount
   end
 
   protected
