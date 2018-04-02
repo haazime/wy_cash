@@ -42,4 +42,30 @@ describe '金額' do
       expect(reduced).to eq(Money.dollar(10))
     end
   end
+
+  describe '加算オブジェクト' do
+    it do
+      five = Money.dollar(5)
+      sum = five + five
+      expect(sum.augend).to eq(five)
+      expect(sum.addend).to eq(five)
+    end
+  end
+
+  describe 'ReduceSum' do
+    it do
+      sum = Sum.new(Money.dollar(3), Money.dollar(4))
+      bank = Bank.new
+      result = bank.reduce(sum, 'USD')
+      expect(result).to eq(Money.dollar(7))
+    end
+  end
+
+  describe 'ReduceMoney' do
+    it do
+      bank = Bank.new
+      result = bank.reduce(Money.dollar(1), 'USD')
+      expect(result).to eq(Money.dollar(1))
+    end
+  end
 end
