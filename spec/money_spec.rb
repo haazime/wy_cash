@@ -42,4 +42,13 @@ describe '金額' do
       expect(reduced).to eq(Money.dollar(10))
     end
   end
+
+  describe '加算オブジェクト' do
+    it do
+      five = Money.dollar(5)
+      result = five.plus(five)
+      expect(five, sum.augend)
+      expect(five, sum.addend)
+    end
+  end
 end
