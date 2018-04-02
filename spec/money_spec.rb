@@ -68,4 +68,13 @@ describe '金額' do
       expect(result).to eq(Money.dollar(1))
     end
   end
+
+  describe '異なる通貨の変換' do
+    it do
+      bank = Bank.new
+      bank.add_rate('CHF', 'USD', 2)
+      result = bank.reduce(Money.franc(2), 'USD')
+      expect(result).to eq(Money.dollar(1))
+    end
+  end
 end
