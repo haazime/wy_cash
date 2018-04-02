@@ -6,6 +6,10 @@ class Money
     def dollar(amount)
       Dollar.new(amount)
     end
+
+    def franc(amount)
+      Franc.new(amount)
+    end
   end
 
   def initialize(amount)
