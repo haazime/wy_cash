@@ -1,4 +1,5 @@
 require 'bank'
+require 'sum'
 
 class Money
   class << self
@@ -12,7 +13,7 @@ class Money
     end
   end
 
-  attr_reader :currency
+  attr_reader :amount, :currency
 
   def initialize(amount, currency)
     @amount = amount
@@ -24,15 +25,15 @@ class Money
   end
 
   def +(other)
-    self.class.new(@amount + other.amount, currency)
+    Sum.new(self, other)
+  end
+
+  def reduce(to)
+    self
   end
 
   def ==(other)
     self.currency == other.currency &&
       self.amount == other.amount
   end
-
-  protected
-
-    attr_reader :amount
 end
