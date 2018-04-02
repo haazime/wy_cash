@@ -29,7 +29,13 @@ class Money
   end
 
   def reduce(to)
-    self
+    rate =
+      if currency == 'CHF' && to == 'USD'
+        2
+      else
+        1
+      end
+    self.class.new(amount / rate, to)
   end
 
   def ==(other)
