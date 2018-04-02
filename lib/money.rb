@@ -21,11 +21,11 @@ class Money
   end
 
   def times(multiplier)
-    self.class.new(@amount * multiplier, currency)
+    self.class.new(amount * multiplier, currency)
   end
 
-  def +(other)
-    Sum.new(self, other)
+  def +(addend)
+    Sum.new(self, addend)
   end
 
   def reduce(bank, to)
@@ -36,5 +36,9 @@ class Money
   def ==(other)
     self.currency == other.currency &&
       self.amount == other.amount
+  end
+
+  def to_s
+    "#{amount} #{currency}"
   end
 end
