@@ -3,7 +3,7 @@ require 'spec_helper'
 describe '通貨' do
   describe '掛け算' do
     it do
-      five = Dollar.new(5)
+      five = Money.dollar(5)
       expect(five.times(2)).to eq(Dollar.new(10))
       expect(five.times(3)).to eq(Dollar.new(15))
     end
