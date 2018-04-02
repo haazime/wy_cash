@@ -15,4 +15,12 @@ describe '通貨' do
       expect(Dollar.new(5)).to_not eq(Dollar.new(6))
     end
   end
+
+  describe 'フランの掛け算' do
+    it do
+      five = Franc.new(5)
+      expect(five.times(2)).to eq(Franc.new(10))
+      expect(five.times(3)).to eq(Franc.new(15))
+    end
+  end
 end
