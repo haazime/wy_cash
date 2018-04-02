@@ -31,4 +31,11 @@ describe '金額' do
       expect(Money.franc(1).currency).to eq('CHF')
     end
   end
+
+  describe '同じ通貨の加算' do
+    it do
+      sum = Money.dollar(5) + Money.dollar(5)
+      expect(sum).to eq(Money.dollar(10))
+    end
+  end
 end
