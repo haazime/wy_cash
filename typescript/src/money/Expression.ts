@@ -1,6 +1,6 @@
-import { Money } from './index';
+import { Money, Bank } from './index';
 
 interface Expression {
-  reduce(to: string): Money;
+  reduce(bank: Bank, to: string): Money;
 }
 export default Expression;
