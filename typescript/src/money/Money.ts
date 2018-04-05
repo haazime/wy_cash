@@ -1,5 +1,7 @@
-class Money {
-  public amount: number;
+import { Expression } from './index';
+
+class Money implements Expression {
+  private amount: number;
   public currency: string;
 
   public static dollar(amount: number): Money {
@@ -15,13 +17,17 @@ class Money {
     this.currency = currency;
   }
 
+  public times(multiplier: number): Money {
+    return new Money(this.amount * multiplier, this.currency);
+  }
+
+  public plus(other: Money): Expression {
+    return new Money(this.amount + other.amount, this.currency);
+  }
+
   public equals(other: Object): boolean {
     const money: Money = <Money> other;
     return this.amount == money.amount && this.currency == money.currency;
-  }
-
-  public times(multiplier: number): Money {
-    return new Money(this.amount * multiplier, this.currency);
   }
 }
 export default Money;

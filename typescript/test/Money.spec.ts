@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Money } from '../src/money/index';
+import { Money, Expression, Bank } from '../src/money/index';
 
 describe('Money', () => {
   describe('testMultiplication', () => {
@@ -22,6 +22,16 @@ describe('Money', () => {
     it('', () => {
       expect(Money.dollar(1).currency).to.equal('USD');
       expect(Money.franc(1).currency).to.equal('CHF');
+    })
+  })
+
+  describe('testSimpleAddition', () => {
+    it('', () => {
+      const five: Money = Money.dollar(5);
+      const sum: Expression = five.plus(five);
+      const bank: Bank = new Bank;
+      const reduced: Money = bank.reduce(sum, 'USD');
+      expect(reduced.equals(Money.dollar(10))).to.be.true;
     })
   })
 })
