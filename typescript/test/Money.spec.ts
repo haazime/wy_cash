@@ -11,4 +11,11 @@ describe('Money', () => {
       expect(product.amount).to.equal(15);
     })
   })
+
+  describe('testEquality', () => {
+    it('', () => {
+      expect(new Dollar(5).equals(new Dollar(5))).to.be.true;
+      expect(new Dollar(5).equals(new Dollar(6))).to.be.false;
+    })
+  })
 })
