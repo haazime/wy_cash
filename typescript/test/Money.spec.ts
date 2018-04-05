@@ -61,4 +61,13 @@ describe('Money', () => {
       expect(result.equals(Money.dollar(1))).to.be.true;
     })
   })
+
+  describe('testReduceMoneyDifferentCurrency', () => {
+    it('', () => {
+      const bank: Bank = new Bank;
+      bank.addRate('CHF', 'USD', 2);
+      const result: Money = bank.reduce(Money.franc(2), 'USD');
+      expect(result.equals(Money.dollar(1))).to.be.true;
+    })
+  })
 })
