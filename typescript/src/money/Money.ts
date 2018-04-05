@@ -1,4 +1,4 @@
-import Dollar from './Dollar';
+import { Dollar, Franc } from './index';
 
 abstract class Money {
   public amount: number;
@@ -7,6 +7,10 @@ abstract class Money {
 
   public static dollar(amount: number): Dollar {
     return new Dollar(amount);
+  }
+
+  public static franc(amount: number): Franc {
+    return new Franc(amount);
   }
 
   constructor() {
