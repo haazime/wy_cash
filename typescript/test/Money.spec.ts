@@ -70,4 +70,11 @@ describe('Money', () => {
       expect(result.equals(Money.dollar(1))).to.be.true;
     })
   })
+
+  describe('testIdentityRate', () => {
+    it('', () => {
+      const bank: Bank = new Bank;
+      expect(bank.rate('USD', 'USD')).to.equal(1);
+    })
+  })
 })
