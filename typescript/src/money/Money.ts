@@ -1,7 +1,7 @@
 import { Expression, Sum } from './index';
 
 class Money implements Expression {
-  private amount: number;
+  public amount: number;
   public currency: string;
 
   public static dollar(amount: number): Money {

@@ -44,4 +44,13 @@ describe('Money', () => {
       expect(sum.addend.equals(five)).to.be.true;
     })
   })
+
+  describe('testReduceSum', () => {
+    it('', () => {
+      const sum: Expression = new Sum(Money.dollar(3), Money.dollar(4));
+      const bank: Bank = new Bank;
+      const result: Money = bank.reduce(sum, 'USD');
+      expect(result.equals(Money.dollar(7))).to.be.true;
+    })
+  })
 })
