@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Money, Expression, Bank } from '../src/money/index';
+import { Money, Expression, Bank, Sum } from '../src/money/index';
 
 describe('Money', () => {
   describe('testMultiplication', () => {
@@ -32,6 +32,33 @@ describe('Money', () => {
       const bank: Bank = new Bank;
       const reduced: Money = bank.reduce(sum, 'USD');
       expect(reduced.equals(Money.dollar(10))).to.be.true;
+    })
+  })
+
+  describe('testPlusReturnsSum', () => {
+    it('', () => {
+      const five: Money = Money.dollar(5);
+      const result: Expression = five.plus(five);
+      const sum: Sum = <Sum> result;
+      expect(sum.augend.equals(five)).to.be.true;
+      expect(sum.addend.equals(five)).to.be.true;
+    })
+  })
+
+  describe('testReduceSum', () => {
+    it('', () => {
+      const sum: Expression = new Sum(Money.dollar(3), Money.dollar(4));
+      const bank: Bank = new Bank;
+      const result: Money = bank.reduce(sum, 'USD');
+      expect(result.equals(Money.dollar(7))).to.be.true;
+    })
+  })
+
+  describe('testReduceMoney', () => {
+    it('', () => {
+      const bank: Bank = new Bank;
+      const result: Money = bank.reduce(Money.dollar(1), 'USD');
+      expect(result.equals(Money.dollar(1))).to.be.true;
     })
   })
 })

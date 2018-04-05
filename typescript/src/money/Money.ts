@@ -1,7 +1,7 @@
-import { Expression } from './index';
+import { Expression, Sum } from './index';
 
 class Money implements Expression {
-  private amount: number;
+  public amount: number;
   public currency: string;
 
   public static dollar(amount: number): Money {
@@ -22,7 +22,11 @@ class Money implements Expression {
   }
 
   public plus(other: Money): Expression {
-    return new Money(this.amount + other.amount, this.currency);
+    return new Sum(this, other);
+  }
+
+  public reduce(to: string): Money {
+    return this;
   }
 
   public equals(other: Object): boolean {
