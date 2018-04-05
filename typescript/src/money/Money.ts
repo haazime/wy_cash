@@ -1,4 +1,4 @@
-import { Expression } from './index';
+import { Expression, Sum } from './index';
 
 class Money implements Expression {
   private amount: number;
@@ -22,7 +22,7 @@ class Money implements Expression {
   }
 
   public plus(other: Money): Expression {
-    return new Money(this.amount + other.amount, this.currency);
+    return new Sum(this, other);
   }
 
   public equals(other: Object): boolean {
