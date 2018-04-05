@@ -6,7 +6,7 @@ class Dollar extends Money {
     this.amount = amount;
   }
 
-  public times(multiplier: number): Dollar {
+  public times(multiplier: number): Money {
     return new Dollar(this.amount * multiplier);
   }
 }
