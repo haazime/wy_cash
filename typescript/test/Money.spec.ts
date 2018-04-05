@@ -16,6 +16,7 @@ describe('Money', () => {
       expect(new Dollar(5).equals(new Dollar(6))).to.be.false;
       expect(new Franc(5).equals(new Franc(5))).to.be.true;
       expect(new Franc(5).equals(new Franc(6))).to.be.false;
+      expect(new Franc(5).equals(new Dollar(5))).to.be.false;
     })
   })
 
