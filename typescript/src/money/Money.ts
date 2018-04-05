@@ -25,6 +25,10 @@ class Money implements Expression {
     return new Sum(this, other);
   }
 
+  public reduce(to: string): Money {
+    return this;
+  }
+
   public equals(other: Object): boolean {
     const money: Money = <Money> other;
     return this.amount == money.amount && this.currency == money.currency;
