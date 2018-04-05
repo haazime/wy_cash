@@ -2,19 +2,21 @@ import { Dollar, Franc } from './index';
 
 abstract class Money {
   public amount: number;
+  public currency: string;
 
   public abstract times(multiplier: number): Money;
 
   public static dollar(amount: number): Dollar {
-    return new Dollar(amount);
+    return new Dollar(amount, 'USD');
   }
 
   public static franc(amount: number): Franc {
-    return new Franc(amount);
+    return new Franc(amount, 'CHF');
   }
 
-  constructor() {
-    this.amount = 0;
+  constructor(amount: number, currency: string) {
+    this.amount = amount;
+    this.currency = currency;
   }
 
   public equals(other: Object): boolean {
