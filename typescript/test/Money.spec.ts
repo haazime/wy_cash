@@ -1,6 +1,5 @@
 import { expect } from 'chai';
-import Dollar from '../src/Dollar';
-import Franc from '../src/Franc';
+import { Dollar, Franc, Money } from '../src/money/index';
 
 describe('Money', () => {
   describe('testMultiplication', () => {
