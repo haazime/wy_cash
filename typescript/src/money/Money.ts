@@ -1,15 +1,13 @@
-import { Dollar, Franc } from './index';
-
 class Money {
   public amount: number;
   public currency: string;
 
-  public static dollar(amount: number): Dollar {
-    return new Dollar(amount, 'USD');
+  public static dollar(amount: number): Money {
+    return new Money(amount, 'USD');
   }
 
-  public static franc(amount: number): Franc {
-    return new Franc(amount, 'CHF');
+  public static franc(amount: number): Money {
+    return new Money(amount, 'CHF');
   }
 
   constructor(amount: number, currency: string) {
