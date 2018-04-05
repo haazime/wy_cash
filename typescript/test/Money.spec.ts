@@ -1,6 +1,5 @@
 import { expect } from 'chai';
-import Dollar from '../src/Dollar';
-import Franc from '../src/Franc';
+import { Dollar, Franc, Money } from '../src/money/index';
 
 describe('Money', () => {
   describe('testMultiplication', () => {
@@ -15,6 +14,8 @@ describe('Money', () => {
     it('', () => {
       expect(new Dollar(5).equals(new Dollar(5))).to.be.true;
       expect(new Dollar(5).equals(new Dollar(6))).to.be.false;
+      expect(new Franc(5).equals(new Franc(5))).to.be.true;
+      expect(new Franc(5).equals(new Franc(6))).to.be.false;
     })
   })
 
