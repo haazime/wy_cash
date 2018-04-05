@@ -34,4 +34,10 @@ describe('Money', () => {
       expect(Money.franc(1).currency).to.equal('CHF');
     })
   })
+
+  describe('testDifferentClassEquality', () => {
+    it('', () => {
+      expect(new Money(10, 'CHF').equals(Money.franc(10))).to.be.true;
+    })
+  })
 })

@@ -1,10 +1,8 @@
 import { Dollar, Franc } from './index';
 
-abstract class Money {
+class Money {
   public amount: number;
   public currency: string;
-
-  public abstract times(multiplier: number): Money;
 
   public static dollar(amount: number): Dollar {
     return new Dollar(amount, 'USD');
@@ -21,7 +19,11 @@ abstract class Money {
 
   public equals(other: Object): boolean {
     const money: Money = <Money> other;
-    return this.amount == money.amount && this.constructor.toString() == money.constructor.toString();
+    return this.amount == money.amount && this.currency == money.currency;
+  }
+
+  public times(multiplier: number): Money {
+    return new Money(this.amount * multiplier, this.currency);
   }
 }
 export default Money;
