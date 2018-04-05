@@ -27,4 +27,11 @@ describe('Money', () => {
       expect(five.times(3).equals(Money.franc(15))).to.be.true;
     })
   })
+
+  describe('testCurrency', () => {
+    it('', () => {
+      expect(Money.dollar(1).currency).to.equal('USD');
+      expect(Money.franc(1).currency).to.equal('CHF');
+    })
+  })
 })
