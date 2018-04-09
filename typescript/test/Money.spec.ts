@@ -80,8 +80,8 @@ describe('Money', () => {
 
   describe('testMixedAddition', () => {
     it('', () => {
-      const fiveBucks: Money = Money.dollar(5);
-      const tenFrancs: Money = Money.franc(10);
+      const fiveBucks: Expression = Money.dollar(5);
+      const tenFrancs: Expression = Money.franc(10);
       const bank: Bank = new Bank;
       bank.addRate('CHF', 'USD', 2);
       const result: Money = bank.reduce(fiveBucks.plus(tenFrancs), 'USD');

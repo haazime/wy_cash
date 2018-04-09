@@ -17,11 +17,11 @@ class Money implements Expression {
     this.currency = currency;
   }
 
-  public times(multiplier: number): Money {
+  public times(multiplier: number): Expression {
     return new Money(this.amount * multiplier, this.currency);
   }
 
-  public plus(other: Money): Expression {
+  public plus(other: Expression): Expression {
     return new Sum(this, other);
   }
 
