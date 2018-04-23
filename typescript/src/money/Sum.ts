@@ -18,6 +18,10 @@ class Sum implements Expression {
     return new Sum(this, addend);
   }
 
+  public times(multiplier: number): Expression {
+    return new Sum(this.augend.times(multiplier), this.addend.times(multiplier));
+  }
+
   public equals(other: Expression): boolean {
     return false;
   }
