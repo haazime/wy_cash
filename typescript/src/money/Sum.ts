@@ -15,7 +15,7 @@ class Sum implements Expression {
   }
 
   public plus(addend: Expression): Expression {
-    return addend;
+    return new Sum(this, addend);
   }
 
   public equals(other: Expression): boolean {
