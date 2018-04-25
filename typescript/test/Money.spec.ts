@@ -112,4 +112,12 @@ describe('Money', () => {
       expect(result.equals(Money.dollar(20))).to.be.true;
     })
   })
+
+  describe('testPlusSameCurrency', () => {
+    it('', () => {
+      const sum: Expression = Money.dollar(1).plus(Money.dollar(1));
+      const m = Money.dollar(1);
+      expect(sum.constructor.toString()).to.eq(m.constructor.toString());
+    })
+  })
 })
