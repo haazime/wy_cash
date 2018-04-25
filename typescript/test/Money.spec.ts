@@ -85,8 +85,39 @@ describe('Money', () => {
       const bank: Bank = new Bank;
       bank.addRate('CHF', 'USD', 2);
       const result: Money = bank.reduce(fiveBucks.plus(tenFrancs), 'USD');
-      console.log('actual', result);
       expect(result.equals(Money.dollar(10))).to.be.true;
+    })
+  })
+
+  describe('testSumPlusMoney', () => {
+    it('', () => {
+      const fiveBucks: Expression = Money.dollar(5);
+      const tenFrancs: Expression = Money.franc(10);
+      const bank: Bank = new Bank;
+      bank.addRate('CHF', 'USD', 2);
+      const sum: Expression = new Sum(fiveBucks, tenFrancs).plus(fiveBucks);
+      const result: Money = bank.reduce(sum, 'USD');
+      expect(result.equals(Money.dollar(15))).to.be.true;
+    })
+  })
+
+  describe('testSumTimes', () => {
+    it('', () => {
+      const fiveBucks: Expression = Money.dollar(5);
+      const tenFrancs: Expression = Money.franc(10);
+      const bank: Bank = new Bank;
+      bank.addRate('CHF', 'USD', 2);
+      const sum: Expression = new Sum(fiveBucks, tenFrancs).times(2);
+      const result: Money = bank.reduce(sum, 'USD');
+      expect(result.equals(Money.dollar(20))).to.be.true;
+    })
+  })
+
+  describe('testPlusSameCurrency', () => {
+    it('', () => {
+      const sum: Expression = Money.dollar(1).plus(Money.dollar(1));
+      const m = Money.dollar(1);
+      expect(sum.constructor.toString()).to.eq(m.constructor.toString());
     })
   })
 })
